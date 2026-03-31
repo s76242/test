@@ -25,21 +25,16 @@ public class HelloServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>My First Servlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Hello Servlet<h1>");
-            out.println("<h2>Servlet HelloServlet at " + request.getContextPath() + "</h2>");
-            out.println("</body>");
-            out.println("</html>");
+           String name = request.getParameter("name");
+            out.println("<html><body>");           
+            out.println("<h1>Hello, "+name+"! "+"<br><h1>");
+            out.println("<h2>Apa khabar?"+"<br><h2>");
+            out.println("<h2>Waktu dan tarikh di server ialah"+ new java.util.Date() + "</h2>");
+            out.println("</body></html>");
         }
     }
 
